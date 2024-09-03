@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla App Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-CRCB-GUD.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/vendor-DumFYO8Z.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-Bh3KLiWk.css">
+  </head>
+  <body>
+    <section class="form-section">
+      <div class="section-box">
+        <form class="form">
+          <input
+            class="input-form"
+            placeholder="Search images..."
+            name="user_query"
+            required
+          />
+          <button class="button-form">Search</button>
+        </form>
+
+        <span id="load-more-loader-top" hidden></span>
+
+        <ul class="gallery"></ul>
+
+        <button id="button-load-more" hidden>Load more</button>
+        <span id="load-more-loader"></span>
+      </div>
+    </section>
+  </body>
+</html>
