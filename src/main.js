@@ -60,9 +60,9 @@ form.addEventListener('submit', event => {
   asyncTryCatch();
   btn.classList.add('button-load-more');
   loaderMoreSpan.classList.remove('loader');
-  const heightItem = galleryListItem.getBoundingClientRect().height;
+  const heightItem = galleryListItem.getBoundingClientRect();
   scrollBy({
-    top: heightItem * 2,
+    top: heightItem.height * 2,
     behavior: 'smooth',
   });
 });
