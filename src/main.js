@@ -52,12 +52,22 @@ form.addEventListener('submit', async event => {
       return;
     }
 
-    if (inf.totalHits <= perPage) {
-      console.log(inf.totalHits);
-      console.log(perPage);
+    // const totalPages = Math.ceil(inf.totalHits / perPage);
 
-      btn.classList.remove('js-button');
-    }
+    // if (totalPages === 0) {
+    //   // loaderMoreSpan.classList.remove('loader');
+    //   btn.classList.remove('js-button');
+
+    //   return iziToast.error({
+    //     message: 'pipi',
+    //   });
+
+    // if (inf.totalHits <= perPage) {
+    //   console.log(inf.totalHits);
+    //   console.log(perPage);
+
+    //   btn.classList.remove('js-button');
+    // }
     const gallery = inf.hits
       .map(imgInform => createGallery(imgInform))
       .join('');
@@ -67,7 +77,9 @@ form.addEventListener('submit', async event => {
     lightbox.refresh();
 
     loaderSpan.classList.remove('loader');
-    btn.classList.add('js-button');
+    if (inf.totalHits > perPage) {
+      btn.classList.add('js-button');
+    }
   } catch (error) {
     loaderSpan.classList.remove('loader');
 
