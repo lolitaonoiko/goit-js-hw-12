@@ -70,13 +70,13 @@ img {
   padding-bottom: 36px;
 }
 .section-box {
-  width: 1128px;
+  max-width: 1128px;
   margin: 0 auto;
 }
 .form {
-  margin-bottom: 32px;
   display: flex;
   justify-content: center;
+  background-color: #fff;
 }
 .input-form {
   border-radius: 4px;
@@ -171,6 +171,7 @@ img {
   flex-wrap: wrap;
   gap: 24px;
   margin-bottom: 32px;
+  padding-top: 60px;
 }
 .button-load-more {
   border-radius: 8px;
