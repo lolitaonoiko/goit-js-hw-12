@@ -54,6 +54,7 @@ form.addEventListener('submit', async event => {
 
     if (inf.totalHits <= perPage) {
       console.log('pipi');
+      console.log(inf.totalHits);
 
       btn.classList.remove('js-button');
     }
