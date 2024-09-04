@@ -28,25 +28,34 @@ let firstSubmit = true;
 
 form.addEventListener('submit', async event => {
   if (!firstSubmit) {
-    btn.classList.remove('button-load-more');
+    btn.classList.remove('js-button');
   }
-  page = 1;
   event.preventDefault();
 
   inputValue = form.elements.user_query.value.trim();
+
+  page = 1;
 
   cleanElHTML(galleryList);
   loaderSpan.classList.add('loader');
 
   try {
     const inf = await requestFetch(inputValue, page, perPage);
-    if (inf.total === 0) {
+
+    if (inf.totalHits === 0) {
       loaderSpan.classList.remove('loader');
 
-      return iziToast.error({
+      iziToast.error({
         message:
           'Sorry, there are no images matching your search query. Please try again!',
       });
+      return;
+    }
+
+    if (inf.totalHits <= perPage) {
+      console.log('pipi');
+
+      btn.classList.remove('js-button');
     }
     const gallery = inf.hits
       .map(imgInform => createGallery(imgInform))
@@ -55,8 +64,9 @@ form.addEventListener('submit', async event => {
     addElToHTML(gallery, galleryList);
 
     lightbox.refresh();
+
     loaderSpan.classList.remove('loader');
-    btn.classList.add('button-load-more');
+    btn.classList.add('js-button');
   } catch (error) {
     loaderSpan.classList.remove('loader');
 
@@ -71,6 +81,7 @@ form.addEventListener('submit', async event => {
 });
 
 btn.addEventListener('click', async () => {
+  btn.classList.remove('js-button');
   if (inputValue === '') {
     iziToast.error({
       message: 'Please enter a subject for the photo',
@@ -95,6 +106,7 @@ btn.addEventListener('click', async () => {
     const totalPages = Math.ceil(inf.totalHits / perPage);
     if (page > totalPages) {
       loaderMoreSpan.classList.remove('loader');
+      btn.classList.remove('js-button');
 
       return iziToast.error({
         message: "We're sorry, but you've reached the end of search results.",
@@ -104,6 +116,7 @@ btn.addEventListener('click', async () => {
     galleryList.insertAdjacentHTML('beforeend', gallery);
 
     loaderMoreSpan.classList.remove('loader');
+    btn.classList.add('js-button');
 
     lightbox.refresh();
     scrollBy({

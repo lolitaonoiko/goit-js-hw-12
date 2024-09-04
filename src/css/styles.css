@@ -173,7 +173,8 @@ img {
   margin-bottom: 32px;
   padding-top: 60px;
 }
-.button-load-more {
+
+.js-button {
   border-radius: 8px;
   padding: 8px 16px;
 
