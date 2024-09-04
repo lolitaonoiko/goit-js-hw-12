@@ -91,7 +91,6 @@ btn.addEventListener('click', async () => {
 
     const galleryListItem = document.querySelector('.gallery-item');
     const heightOfGalleryItem = galleryListItem.getBoundingClientRect().height;
-    console.log(heightOfGalleryItem * 2);
 
     const totalPages = Math.ceil(inf.totalHits / perPage);
     if (page > totalPages) {
