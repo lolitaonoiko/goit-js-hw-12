@@ -20,7 +20,6 @@ const loaderSpan = document.querySelector('#load-more-loader-top');
 const btn = document.querySelector('.gallery + button');
 
 const loaderMoreSpan = document.querySelector('#load-more-loader');
-console.log(btn);
 
 let page = 1;
 let perPage = 15;
